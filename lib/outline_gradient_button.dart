@@ -46,20 +46,25 @@ class OutlineGradientButton extends StatelessWidget {
         assert(backgroundColor != null),
         assert(elevation != null && elevation >= 0),
         assert(inkWell != null),
-        assert(radius == null || corners == null, 'Cannot provide both a radius and corners.'),
+        assert(radius == null || corners == null,
+            'Cannot provide both a radius and corners.'),
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final BorderRadius br = corners != null ? _fromCorners(corners, strokeWidth) : _fromRadius(radius, strokeWidth);
+    final BorderRadius br = corners != null
+        ? _fromCorners(corners, strokeWidth)
+        : _fromRadius(radius, strokeWidth);
     return Material(
       color: backgroundColor,
       elevation: elevation,
       borderRadius: br,
       child: InkWell(
         borderRadius: br,
-        highlightColor: inkWell ? Theme.of(context).highlightColor : Colors.transparent,
-        splashColor: inkWell ? Theme.of(context).splashColor : Colors.transparent,
+        highlightColor:
+            inkWell ? Theme.of(context).highlightColor : Colors.transparent,
+        splashColor:
+            inkWell ? Theme.of(context).splashColor : Colors.transparent,
         onTap: onTap,
         onLongPress: onLongPress,
         onDoubleTap: onDoubleTap,
@@ -78,16 +83,21 @@ class OutlineGradientButton extends StatelessWidget {
 
   static BorderRadius _fromCorners(Corners corners, double strokeWidth) {
     return BorderRadius.only(
-      topLeft: Radius.elliptical(corners.topLeft.x + strokeWidth, corners.topLeft.y + strokeWidth),
-      topRight: Radius.elliptical(corners.topRight.x + strokeWidth, corners.topRight.y + strokeWidth),
-      bottomLeft: Radius.elliptical(corners.bottomLeft.x + strokeWidth, corners.bottomLeft.y + strokeWidth),
-      bottomRight: Radius.elliptical(corners.bottomRight.x + strokeWidth, corners.bottomRight.y + strokeWidth),
+      topLeft: Radius.elliptical(
+          corners.topLeft.x + strokeWidth, corners.topLeft.y + strokeWidth),
+      topRight: Radius.elliptical(
+          corners.topRight.x + strokeWidth, corners.topRight.y + strokeWidth),
+      bottomLeft: Radius.elliptical(corners.bottomLeft.x + strokeWidth,
+          corners.bottomLeft.y + strokeWidth),
+      bottomRight: Radius.elliptical(corners.bottomRight.x + strokeWidth,
+          corners.bottomRight.y + strokeWidth),
     );
   }
 
   static BorderRadius _fromRadius(Radius radius, double strokeWidth) {
     final Radius r = radius ?? Radius.zero;
-    return BorderRadius.all(Radius.elliptical(r.x + strokeWidth, r.y + strokeWidth));
+    return BorderRadius.all(
+        Radius.elliptical(r.x + strokeWidth, r.y + strokeWidth));
   }
 }
 
@@ -101,7 +111,8 @@ class _Painter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final Rect rect = Rect.fromLTWH(strokeWidth / 2, strokeWidth / 2, size.width - strokeWidth, size.height - strokeWidth);
+    final Rect rect = Rect.fromLTWH(strokeWidth / 2, strokeWidth / 2,
+        size.width - strokeWidth, size.height - strokeWidth);
     final RRect rRect = corners != null
         ? RRect.fromRectAndCorners(
             rect,

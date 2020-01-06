@@ -1,6 +1,6 @@
 name: outline_gradient_button
 description: OutlineGradientButton package developed to create buttons with gradient outline.
-version: 1.0.0
+version: 1.0.0+2
 homepage: https://github.com/kalaganov/outline_gradient_button
 
 environment:

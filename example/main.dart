@@ -6,14 +6,14 @@ import 'package:outline_gradient_button/outline_gradient_button.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  final scaffoldKey = new GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldMessengerState> _rootScaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      scaffoldMessengerKey: _rootScaffoldMessengerKey,
       home: Scaffold(
-        key: scaffoldKey,
         appBar: AppBar(title: Text('Outline gradient buttons demo')),
         backgroundColor: Colors.white,
         body: Container(
@@ -117,8 +117,8 @@ class MyApp extends StatelessWidget {
   }
 
   void showSnack(String text) {
-    scaffoldKey.currentState
-      ..removeCurrentSnackBar()
+    _rootScaffoldMessengerKey.currentState
+      ?..removeCurrentSnackBar()
       ..showSnackBar(SnackBar(content: Text(text)));
   }
 }

@@ -117,8 +117,7 @@ class MyApp extends StatelessWidget {
   }
 
   void showSnack(String text) {
-    _rootScaffoldMessengerKey.currentState
-      ?..removeCurrentSnackBar()
-      ..showSnackBar(SnackBar(content: Text(text)));
+    _rootScaffoldMessengerKey.currentState?.removeCurrentSnackBar();
+    _rootScaffoldMessengerKey.currentState?.showSnackBar(SnackBar(content: Text(text)));
   }
 }

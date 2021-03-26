@@ -48,7 +48,7 @@ class OutlineGradientButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final BorderRadius br = corners != null ? _fromCorners(corners!, strokeWidth) : _fromRadius(radius!, strokeWidth);
+    final BorderRadius br = corners != null ? _fromCorners(corners!, strokeWidth) : _fromRadius(radius ?? Radius.zero, strokeWidth);
     return Material(
       color: backgroundColor,
       elevation: elevation,

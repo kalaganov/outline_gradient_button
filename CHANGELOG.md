@@ -1,3 +1,7 @@
+## [2.0.1+1] - 11.03.2023
+
+* fixed showing an example code on pub.dev
+
 ## [2.0.1] - 11.03.2023
 
 * Increased minimum SDK version to 2.17.0

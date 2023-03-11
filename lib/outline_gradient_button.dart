@@ -79,6 +79,7 @@ class OutlineGradientButton extends StatelessWidget {
     );
   }
 
+  ///
   static BorderRadius _fromCorners(Corners corners, double strokeWidth) {
     return BorderRadius.only(
       topLeft: Radius.elliptical(
@@ -100,6 +101,7 @@ class OutlineGradientButton extends StatelessWidget {
     );
   }
 
+  ///
   static BorderRadius _fromRadius(Radius radius, double strokeWidth) {
     return BorderRadius.all(
       Radius.elliptical(
@@ -110,6 +112,7 @@ class OutlineGradientButton extends StatelessWidget {
   }
 }
 
+///
 class _Painter extends CustomPainter {
   final Gradient gradient;
   final Radius? radius;
@@ -131,6 +134,7 @@ class _Painter extends CustomPainter {
     canvas.drawRRect(rRect, paint);
   }
 
+  ///
   static Rect _createRect(double strokeWidth, Size size) {
     return Rect.fromLTWH(
       strokeWidth / 2,
@@ -140,6 +144,7 @@ class _Painter extends CustomPainter {
     );
   }
 
+  ///
   static RRect _createRRectFromRectAndCorners(Rect rect, Corners corners) {
     return RRect.fromRectAndCorners(
       rect,
@@ -154,6 +159,7 @@ class _Painter extends CustomPainter {
   bool shouldRepaint(CustomPainter oldDelegate) => oldDelegate != this;
 }
 
+///
 class Corners {
   final Radius topLeft;
   final Radius topRight;
